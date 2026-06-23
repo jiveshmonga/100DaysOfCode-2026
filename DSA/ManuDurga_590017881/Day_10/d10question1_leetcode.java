@@ -2,7 +2,7 @@ package Day_10;
 
 import java.util.Scanner;
 
-public class d10question_leetcode {
+public class d10question1_leetcode {
     public static int strStr(String haystack, String needle) {
         int in = haystack.indexOf(needle);
         return in;
