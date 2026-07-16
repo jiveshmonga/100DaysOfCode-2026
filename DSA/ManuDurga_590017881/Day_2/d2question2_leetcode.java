@@ -1,5 +1,4 @@
 package Day_2;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -26,5 +25,7 @@ class d2question1_leetcode{
         }
         System.out.println(k);
         System.out.println(Arrays.toString(Arrays.copyOf(nums, k)));
+        sc.close();
+
     }
 }
