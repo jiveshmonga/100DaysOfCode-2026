@@ -1,37 +1,23 @@
-import java.util.ArrayList;
-class FrontMiddleBackQueue {
-    ArrayList<Integer> list;
-    public FrontMiddleBackQueue() {
-        list = new ArrayList<>();
-    }
-    public void pushFront(int val) {
-        list.add(0, val);
-    }
-    public void pushMiddle(int val) {
-        int middle = list.size() / 2;
-        list.add(middle, val);
-    }
-    public void pushBack(int val) {
-        list.add(val);
-    }  
-    public int popFront() {
-        if (list.size() == 0) {
-            return -1;
+import java.util.LinkedList;
+import java.util.Queue;
+class Solution {
+    public int time(int[] tickets, int k) {
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < tickets.length; i++) {
+            queue.add(i);
         }
-        return list.remove(0);
-    }
-    public int popMiddle() {
-        if (list.size() == 0) {
-            return -1;
+        int time = 0;
+        while (!queue.isEmpty()) {
+            int person = queue.remove();
+            tickets[person]--;
+            time++;
+            if (person == k && tickets[person] == 0) {
+                return time;
+            }
+            if (tickets[person] > 0) {
+                queue.add(person);
+            }
         }
-      int middle = (list.size() - 1) / 2;
-
-        return list.remove(middle);
-    } 
-    public int popBack() {
-        if (list.size() == 0) {
-            return -1;
-        }
-        return list.remove(list.size() - 1);
+        return time;
     }
 }
